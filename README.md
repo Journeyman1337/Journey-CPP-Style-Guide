@@ -107,7 +107,7 @@ Everything declared must be within a global namespace per project. The namespace
 
 Both declarations and implementations must be within a namespace block with braces. Namespaces for implementations may not be written in the type name of the implementation itself.
 
-# Indents and Whitespace
+## Indents and Whitespace
 
 Indents must be composed of two spaces. Tabs must never be used, because the physical length of tabs are inconsistent across different IDE's and code viewing applications. There must be no trailing whitespace characters at the end of lines. Words in code on the same line must be seperated by only one space unless the programmer adds extra spaces in order to line list items in a table format for easy viewing.
 
