@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2023 Daniel Aimé Valcour <fosssweeper@gmail.com>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-# The Journey Style Guide v1.0.0
+# The Journey Style Guide v1.0.1
 [![REUSE status](https://api.reuse.software/badge/git.fsfe.org/reuse/api)](https://api.reuse.software/info/git.fsfe.org/reuse/api)
 
 Welcome to the Journey Style Guide, a code formatting style guide designed for writing modern C++ in collaborative projects. Developed by Daniel Aimé Valcour (Journeyman-dev), this guide has been specifically tailored usage with the [Journey Maker Toolkit](https://github.com/Journeyman-dev/Journey-Maker-Toolkit), but it released for public use under the [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
