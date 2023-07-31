@@ -5,7 +5,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
 # The Journey Style Guide v1.0.0
- [![REUSE status](https://api.reuse.software/badge/git.fsfe.org/reuse/api)](https://api.reuse.software/info/git.fsfe.org/reuse/api)
+[![REUSE status](https://api.reuse.software/badge/git.fsfe.org/reuse/api)](https://api.reuse.software/info/git.fsfe.org/reuse/api)
 
 Welcome to the Journey Style Guide, a code formatting style guide designed for writing modern C++ in collaborative projects. Developed by Daniel Aimé Valcour (Journeyman-dev), this guide has been specifically tailored usage with the [Journey Maker Toolkit](https://github.com/Journeyman-dev/Journey-Maker-Toolkit), but it released for public use under the [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
 
@@ -15,7 +15,7 @@ The Journey Style Guide uses the [Semantic Versioning](https://semver.org/) sche
 
 ## Salient Security
 
-User security holds paramount importance. Always prioritize the usage of APIs designed to mitigate security vulnerabilities. When implementing code utilizing potentially unsafe APIs and features, exercise extra caution. Whenever possible, encapsulate unsafe code within a secure interface to minimize potential points where threat vectors could inadvertently be created. If you identify security risks that might not be apparent to other programmers, document them in comments. API documentation must explitily explain the vulnerabilities programers need to be mindful of. When selecting dependencies for specific tasks, libraries that are being actively developed and receive security updates must be prefeered.
+User security holds paramount importance. Always prioritize the usage of APIs designed to mitigate security vulnerabilities. When implementing code utilizing potentially unsafe APIs and features, exercise extra caution. Whenever possible, encapsulate unsafe code within a secure interface to minimize potential points where threat vectors could inadvertently be created. If you identify security risks that might not be apparent to other programmers, document them in comments. API documentation must explicitly explain the vulnerabilities programmers need to be mindful of. When selecting dependencies for specific tasks, libraries that are being actively developed and receive security updates must be preferred.
 
 ## Self Explaining Code
 
@@ -23,7 +23,7 @@ Clarity and comprehension are vital. Source code must be treated as a tutorial, 
 
 ## Detailed Documentation
 
-Function declarations must be preceded by comments that describe what the function does, what the arguments are for, and what is returned. Any potential security issues that a function can introduce if not used properly must be explained. Type declarations, including those for `class` types, `struct` types, and `concept` types, must be preceeded by documentation comments that explain what the types are for and any potential security issues that may arrise when using them incorrectly. Template declarations must also include comments that explain the purpose of each template argmuent. The styling of the documentation itself is up maintainers, but it must be consistent throughout each project. Consider using a documentation generator such as [Doxygen](https://www.doxygen.nl/).
+Function declarations must be preceded by comments that describe what the function does, what the arguments are for, and what is returned. Any potential security issues that a function can introduce if not used properly must be explained. Type declarations, including those for `class` types, `struct` types, and `concept` types, must be preceded by documentation comments that explain what the types are for and any potential security issues that may arise when using them incorrectly. Template declarations must also include comments that explain the purpose of each template argument. The styling of the documentation itself is up maintainers, but it must be consistent throughout each project. Consider using a documentation generator such as [Doxygen](https://www.doxygen.nl/).
 
 ## Explicit Licensing
 
@@ -31,7 +31,7 @@ Projects must be licensed following the [REUSE Software Specification](https://r
 
 ## Explicit Generative AI Usage
 
-If Artificial Intelligence was used to generate code, this must be described. This explanation can come in the form of comments that surround the block of code in question. If generative AI was used throughout a project, a single explanation may be provided in a single location that is easy to find. The explanation must include the official name of the generative AI tool, the version that was used, who created the AI, and a url if avaliable.
+If Artificial Intelligence was used to generate code, this must be described. This explanation can come in the form of comments that surround the block of code in question. If generative AI was used throughout a project, a single explanation may be provided in a single location that is easy to find. The explanation must include the official name of the generative AI tool, the version that was used, who created the AI, and a website url if available.
 
 If project authors wish to forbid the usage of AI Code Generator in a project, this must be explicitly stated in a location that is easy to see.
 
@@ -41,7 +41,7 @@ The C++ standard version that a project targets must be explicitly stated in a l
 
 ## Include Files
 
-To prevent circular inclusion bugs, include files must include the statement `#pragma once` at the top of the file. While it is true that `#pragma once` is not a part of any C or C++ standard, it is supported by every significant compiler toolchain including Clang, GCC, MSVC, and Emscripten.
+To prevent circular inclusion bugs, include files must include the statement `#pragma once` at the top of the file. While it is true that `#pragma once` is not a part of any C or C++ standard, it is supported by every significant compiler tool-chain including Clang, GCC, MSVC, and Emscripten.
 
 C++ header files that users are meant to include must always end in the file extension `.hpp`. These files must never contain function implementations. Instead, functions must either be implemented in source files with the `.src` extension, or in "inline" include files with the `.inl` file extension in a sub-folder named `detail`. Inline headers must be used for implementing inline and constexpr functions, and must be included at the end of their associated `.hpp` files.
 
@@ -51,11 +51,11 @@ Include files must include as few other include files as possible. In header fil
 
 ## No Modules
 
-C++ modules are not widely supported yet across all compilers, so projects must provide support for development without them. Expect this rule to change in the future when support is more widely avaliable. Experimental module support may be included in a project, but the fact that it is experimental needs to be made clear.
+C++ modules are not widely supported yet across all compilers, so projects must provide support for development without them. Expect this rule to change in the future when support is more widely available. Experimental module support may be included in a project, but the fact that it is experimental needs to be made clear.
 
 ## Descriptive Naming
 
-Everything that can be named in the code, including variables and types, must be named descriptively rather than consisely. Code completion features prevalent in modern IDEs make it easy to type long variable names, so typing efficency is not an issue here. However, names must not be too long either, and they must only be as descriptive as necessary for others to understand the code. It is up to programmers to use their best judgement as to what the best names for things should be. Names must never be longer than 25 characters.
+Everything that can be named in the code, including variables and types, must be named descriptively rather than concisely. Code completion features prevalent in modern IDEs make it easy to type long variable names, so typing efficiency is not an issue here. However, names must not be too long either, and they must only be as descriptive as necessary for others to understand the code. It is up to programmers to use their best judgment as to what the best names for things should be. Names must never be longer than 25 characters.
 
 ## Name Casing
 
@@ -78,7 +78,7 @@ Names must be written in specific casing style depending on the situation.
 
 ## Hungarian Notation
 
-Hungarian notation must be used in the specific cirumstances which have been identified as potentially confusing. It must not be used in any situation other than what is listed here.
+Hungarian notation must be used in the specific circumstances which have been identified as potentially confusing. It must not be used in any situation other than what is listed here.
 
 * Template arguments that accept types must be named ending with "_TTARG".
 * Template arguments that accept values must be named ending with "_TARG".
@@ -97,7 +97,7 @@ When naming things, long-form words must be used rather than acronyms. However, 
 
 * Namespaces may be named using acronyms or shortened words.
 * Acronyms may be used to describe coordinate spaces or color channels, such as "stpq," "uv,", "xyz", "rgba," or "hsv." If something named in this way is meant to be used in non-generic situations, then an acronym alone may not be enough.
-* Acronyms are acceptable when refeering to an external library that is named using an acronym.
+* Acronyms are acceptable when referring to an external library that is named using an acronym.
 
 Additionally, when capitalizing acronyms in PascalCase or camelCase, it is required to capitalize only the first letter.
 
@@ -109,17 +109,17 @@ Both declarations and implementations must be within a namespace block with brac
 
 ## Indents and Whitespace
 
-Indents must be composed of two spaces. Tabs must never be used, because the physical length of tabs are inconsistent across different IDE's and code viewing applications. There must be no trailing whitespace characters at the end of lines. Words in code on the same line must be seperated by only one space unless the programmer adds extra spaces in order to line list items in a table format for easy viewing.
+Indents must be composed of two spaces. Tabs must never be used, because the physical length of tabs are inconsistent across different IDE's and code viewing applications. There must be no trailing whitespace characters at the end of lines. Words in code on the same line must be separated by only one space unless the programmer adds extra spaces in order to line list items in a table format for easy viewing.
 
 ## Empty Lines
 
-Empty lines may be inserted anywhere in code in order to visually seperate code into regions or blocks. However, there must never be more than one empty line in a row. There must be no trailing empty lines at the begining or end of a file.
+Empty lines may be inserted anywhere in code in order to visually separate code into regions or blocks. However, there must never be more than one empty line in a row. There must be no trailing empty lines at the beginning or end of a file.
 
 ## Newlines
 
 Lines must not be longer than 80 characters. A statement longer than 80 characters must be split into multiple lines. When a statement is split into multiple lines, each line after the first must be indented. For most binary operators, Line splits must never occur before they are written. However, for the dot (`.`) operator, line splits can only occur before the operator and never after.
 
-If a function with arguments or is split into multiple lines, the arguments must be indented. There must be a newline after each comma that seperates arguments and also after the last argument. The opening parenthises of a split function must be on the same line as the function name, and the closing parenthesis must be on its own line or only with the statement terminating semicolon.
+If a function with arguments or is split into multiple lines, the arguments must be indented. There must be a newline after each comma that separates arguments and also after the last argument. The opening parenthesis of a split function must be on the same line as the function name, and the closing parenthesis must be on its own line or only with the statement terminating semicolon.
 
 If an initializer list is split into multiple lines, the items must be indented. The opening brace must be on its own line. Multiple items can be written on the same line, but this must be consistent throughout the list. The closing brace must be on its own line or only with the statement terminating semicolon.
 
@@ -133,10 +133,10 @@ Empty scope bracket pairs may be written as `{}` and do not need to be written o
 
 Constructor initializer lists must be written in the following style:
 
-    PersonClass::PersonClass(std::string_view name, int age) noexcept
-        : name(name)
-        , age(age)
-    {}
+PersonClass::PersonClass(std::string_view name, int age) noexcept
+: name(name)
+, age(age)
+{}
 
 ## Safe Destructors
 
@@ -148,11 +148,11 @@ Source code must be written only using [ASCII characters](https://en.wikipedia.o
 
 ## Trailer Comments
 
-The closing braces of namespaces must always contain a comment with the namespace declaration (i.e. `} // namespace my_namespace`). In conditional statements, `else` statements must always be followed by a commented condition that must be true if the `else` statement is ever reached (i.e. `else // if (value > 4)`). The same must be done for `#else` preprocessor directives.
+The closing braces of namespaces must always contain a comment with the namespace declaration (i.e. `} // namespace my_namespace`). In conditional statements, `else` statements must always be followed by a commented condition that must be true if the `else` statement is ever reached (i.e. `else // if (value > 4)`). The same must be done for `#else`  pre-processor directives.
 
 ## Feature Preference
 
-C++ has a rich legacy that goes back to the 1960s, and there are often may be many standard features avaliable to accomplish the same task. When there are multiple ways of acomplishing the same task, the solution that came out in the most recent version of the C++ (or C) standard must be prefeered because newer features are usually more secure and practical. However, older features may be used instead if there is a good reason for doing so. Comments must be used to explain this reasoning to others in order to prevent repeated discussion.
+C++ has a rich legacy that goes back to the 1960s, and there are often may be many standard features available to accomplish the same task. When there are multiple ways of accomplishing the same task, the solution that came out in the most recent version of the C++ (or C) standard must be preferred because newer features are usually more secure and practical. However, older features may be used instead if there is a good reason for doing so. Comments must be used to explain this reasoning to others in order to prevent repeated discussion.
 
 ## Avoid Macro Magic
 
@@ -166,23 +166,23 @@ Substitution Failure is Not An Error (SFINAE) is a terrible pattern because it m
 
 The `requires` keyword must only be used in `concept` declarations. In other situations, a previously declared `concept` must be used instead.
 
-## Garunteed Compiler Support
+## Guaranteed Compiler Support
 
-Code must only utilize C++ features that are supported by compilers where feature support is garunteed by the project. Documentation as to what compilers and compiler versions are supported for must be provided in a location that is easy to find. Projects must be tested to ensure that it compiles successfuly with each supported compiler version.
+Code must only utilize C++ features that are supported by compilers where feature support is guaranteed by the project. Documentation as to what compilers and compiler versions are supported for must be provided in a location that is easy to find. Projects must be tested to ensure that it compiles successfuly with each supported compiler version.
 
 ## Compiler Warnings
 
-Compiler warnings must be treated as bugs that need to be fixed as soon as possible. To address compiler warnings, code may be edited to stop the warning, or the warning can be silenced if it is deemed as not a problem. Warnings must only be silenced narrowly around the offending code blocks rather than throughout an entire project. Before developers can silence a warning, they must recieve a second opinion from an expert programmer to verify that there is no security vulnerability.
+Compiler warnings must be treated as bugs that need to be fixed as soon as possible. To address compiler warnings, code may be edited to stop the warning, or the warning can be silenced if it is deemed as not a problem. Warnings must only be silenced narrowly around the offending code blocks rather than throughout an entire project. Before developers can silence a warning, they must receive a second opinion from an expert programmer to verify that there is no security vulnerability.
 
 ## Local Functions
 
-Functions that are meant to be encapsulated within a translation unit must not use the static keyword. Instead, they must exist within annonymous namespaces. If utilized within only one other function, local functions must be written as a lambda assigned to a local variable instead.
+Functions that are meant to be encapsulated within a translation unit must not use the static keyword. Instead, they must exist within anonymous namespaces. If utilized within only one other function, local functions must be written as a lambda assigned to a local variable instead.
 
 ## Default Qualifiers
 
 Unless mutability is required, variables and member functions must have the const qualifier. Unless functions throw exceptions, they must have the noexcept qualifier by default.
 
-## Accesibility Modifiers
+## Accessibility Modifiers
 
 In `class` and `struct` definitions, acessibility modifiers (`public`, `private`, etc) must be explicitly defined.
 
@@ -196,15 +196,15 @@ The nesting of object type declarations within other object type declarations mu
 
 ## Null Pointers
 
-When writing a null pointer value, the C++ `nullptr` keyword must be prefeered. However, API specific notation may be used instead when working with other libraries, and the `NULL` macro from the C standard library may be used when dealing with C APIs. Null pointer values must never be written as the literal "0".
+When writing a null pointer value, the C++ `nullptr` keyword must be preferred. However, API specific notation may be used instead when working with other libraries, and the `NULL` macro from the C standard library may be used when dealing with C APIs. Null pointer values must never be written as the literal "0".
 
 ## Void Function Arguments
 
-Functions with no arguments must not include the `void` keyword in place of the arguments. This has no effect in C++ and is only relevent for C APIs, which is beyond the scope of this guide.
+Functions with no arguments must not include the `void` keyword in place of the arguments. This has no effect in C++ and is only relevant for C APIs, which is beyond the scope of this guide.
 
 ## View and Span Type Arguments
 
-When pasing strings as an argument to a function, prefeer using `std::string_view` or a simillar string viewing type from the standard library. When accepting array collections as a function argument, prefeer `std::span` if possible. When creating custom contiguous collections, consider creating custom view or span types, or making your collection implicitly convertable to `std::span`.
+When passing strings as an argument to a function, prefer using `std::string_view` or a similar string viewing type from the standard library. When accepting array collections as a function argument, prefer `std::span` if possible. When creating custom contiguous collections, consider creating custom view or span types, or making your collection implicitly convertible to `std::span`.
 
 ## Safe Casting
 
@@ -212,15 +212,15 @@ When casting a value from one type to another, `reinterpret_cast()`, `dynamic_ca
 
 ## Conversions of User Types
 
-Avoid implementing operators and constructors that allow for implicit conversions from one type to another unless the conversion is "costless". A conversion is costless if nothing is done other than value assignments. If a conversion is not costless, users must explicitly cast objects from one type to another. This may be done through a member function or a global function that does the conversion.
+Avoid implementing operators and constructors that allow for implicit conversions from one type to another unless the conversion is "cost-less". A conversion is cost-less if nothing is done other than value assignments. If a conversion is not cost-less, users must explicitly cast objects from one type to another. This may be done through a member function or a global function that does the conversion.
 
 ## Heap Memory Ownership
 
-When dealing with memory allocated on the heap, ownership must be encapsulated into object lifetime to employ the Resource Aquisition Is Initialization (RAII) pattern. Standard library types that manage memory must be prefeered over manual memory management, including `std::vector` and `std::unique_ptr`. The operators `new` and `delete` must not be used unless controling memory allignment. C standard library memory functions such as `malloc`, `realloc` and `free` must never be used unless they are required.
+When dealing with memory allocated on the heap, ownership must be encapsulated into object lifetime to employ the Resource Acquisition Is Initialization (RAII) pattern. Standard library types that manage memory must be preferred over manual memory management, including `std::vector` and `std::unique_ptr`. The operators `new` and `delete` must not be used unless controlling memory allignment. C standard library memory functions such as `malloc`, `realloc` and `free` must never be used unless they are required.
 
-##  Memory Reservation
+## Memory Reservation
 
-When a contiguious heap allocated data structure is filled with data, the required memory must be allocated ahead of time if possible. This is far more performant than gradually reallocating and expanding the memory as the data is filled. If the size can not be easily determined ahead of time, the memory must instead be reserved to the maximum possible minimum size and then shrunk down after the memory is filled. The template type `std::vector` from the standard libary has built in functions for doing this. Custom user defined types that deal with heap memory must be declared simillar member functions to allow for this kind of optimization.
+When a contiguious heap allocated data structure is filled with data, the required memory must be allocated ahead of time if possible. This is far more optimal than gradually reallocating and expanding the memory as the data is filled. If the size can not be easily determined ahead of time, the memory must instead be reserved to the maximum possible minimum size and then shrunk down after the memory is filled. The template type `std::vector` from the standard library has built in functions for doing this. Custom user defined types that deal with heap memory must be declared simillar member functions to allow for this kind of optimization.
 
 ## Reference Counted Types
 
@@ -228,7 +228,7 @@ Reference counted types such as `std::shared_ptr` must not be used. Instead, cod
 
 ## Safe Memory Access
 
-When values are indexed from an array, safeguards must exist to prevent segmentation faults from out of range access. When invalid access is possible at runtime, invalid access must be handled with a thrown exception, a returned `std::expected`, or some other method that is described in the documentation. When array access must be garunteed at runtime to never go out of bounds, invalid accesse must be detected it in debug builds using an `assert()` statement.
+When values are indexed from an array, safeguards must exist to prevent segmentation faults from out of range access. When invalid access is possible at runtime, invalid access must be handled with a thrown exception, a returned `std::expected`, or some other method that is described in the documentation. When array access must be guaranteed at runtime to never go out of bounds, invalid access must be detected it in debug builds using an `assert()` statement.
 
 ## TODO Comments
 
@@ -237,3 +237,4 @@ Comment starting with the word `TODO` in all caps can be used to signify somethi
 ## Never Use goto
 
 The `goto` statement is a code smell, and must never be used.
+
