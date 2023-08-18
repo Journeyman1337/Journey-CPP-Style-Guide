@@ -242,3 +242,33 @@ Comment starting with the word `TODO` in all caps can be used to signify somethi
 
 Language features and hacks that break the clear line of code execution should be avoided. The `goto` statement should never be used. Jump buffers should never be used unless they are required by a third party API. In this case, it is important to encapsulate the jump buffer usage as much as possible in order to minimize its reach. Throwing and catching exceptions does not go against this guideline.
 
+## Minimize Nesting
+
+Within functions, code should be written with as little nesting as possible. When there are m Consider inverting your conditional statements. Consider how errors are handled in the following code:
+
+    void my_function(int value)
+    {
+        if (value > 0)
+        {
+            do_something(value);
+        }
+        else
+        {
+            throw InvalidValueException();
+        }
+    }
+
+The condition statement can be inverted in order to remove the nesting. If an `if` block returns or throws, then all following `else` statements are no longer necessary. An added benefit of writing code in this style is that all conditions that cause errors or a fast return become easily visible at the start of the function.
+
+    void my_function(int value)
+    {
+        if (value <= 0)
+        {
+            throw InvalidValueException();
+        }
+
+        do_something(value);
+    }
+
+Another way to minimize nesting is to move nested blocks into their own functions. To keep the logic encapsulated, blocks can be written as lambdas stored in local variables within the function.
+
