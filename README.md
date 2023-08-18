@@ -234,7 +234,7 @@ When values are indexed from an array, safeguards must exist to prevent segmenta
 
 Comment starting with the word `TODO` in all caps can be used to signify something that needs to be adjusted or added at a later time.
 
-## Never Use goto
+## Clear Line of Execution
 
-The `goto` statement is a code smell, and must never be used.
+Language features and hacks that break the clear line of code execution should be avoided. The `goto` statement should never be used. Jump buffers should never be used unless they are required by a third party API. In this case, it is important to encapsulate the jump buffer usage as much as possible in order to minimize its reach. Throwing and catching exceptions does not go against this guideline.
 
