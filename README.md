@@ -232,7 +232,11 @@ When values are indexed from an array, safeguards must exist to prevent segmenta
 
 ## TODO Comments
 
-Comment starting with the word `TODO` in all caps can be used to signify something that needs to be adjusted or added at a later time.
+Comment starting with the word `TODO` in all caps can be used to signify something that needs to be adjusted or added at a later time. If there is a specific time when the changes need to be made, such as for a specific future version, this should be specified in the comment.
+
+    // TODO Optimize memory usage.
+    // TODO Add a specific bit of new functionality by version 1.2
+
 
 ## Clear Line of Execution
 
