@@ -195,7 +195,7 @@ Compiler warnings must be treated as bugs that need to be fixed as soon as possi
 
 ## Local Functions
 
-Functions that are meant to be encapsulated within a translation unit must not use the static keyword. Instead, they must exist within anonymous namespaces. If utilized within only one other function, local functions must be written as a lambda assigned to a local variable instead.
+Functions that are meant to be encapsulated within a translation unit must not use the static keyword. Instead, they must exist within anonymous namespaces. If utilized within only one other function, local functions may be written as a lambda assigned to a local variable instead.
 
 ## Default Qualifiers
 
