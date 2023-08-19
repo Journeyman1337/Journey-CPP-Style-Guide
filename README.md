@@ -4,18 +4,21 @@ SPDX-FileCopyrightText: 2023 Daniel Aimé Valcour <fosssweeper@gmail.com>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-# The Journey Style Guide v1.0.1
-[![REUSE status](https://api.reuse.software/badge/git.fsfe.org/reuse/api)](https://api.reuse.software/info/git.fsfe.org/reuse/api)
+# The Journey C++ Style Guide v2.0.0
 
-Welcome to the Journey Style Guide, a code formatting style guide designed for writing modern C++ in collaborative projects. Developed by Daniel Aimé Valcour (Journeyman-dev), this guide has been specifically tailored usage with the [Journey Maker Toolkit](https://github.com/Journeyman-dev/Journey-Maker-Toolkit), but it released for public use under the [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
+Welcome to the Journey C++ Style Guide, a code formatting style guide designed for writing modern C++ in collaborative projects. Developed by Daniel Aimé Valcour (Journeyman-dev), this guide has been specifically tailored usage with [The Roguelike Framework (RLFW)](https://github.com/Journeyman1337/rlfw), but it released for public use under the [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
 
-The Journey Style Guide endeavors to utilize the cutting edge of the C++ Standard, and it takes into account the features of modern Integrated Development Environments (IDEs). By adhering to the guidelines outlined in this style guide, software projects can maintain a high level of consistency and facilitate collaboration. The sections of this guide are listed in no particular order.
+The Journey C++ Style Guide endeavors to utilize the cutting edge of the C++ Standard, and it takes into account the features of modern Integrated Development Environments (IDEs). By adhering to the guidelines outlined in this style guide, software projects can maintain a high level of consistency and facilitate collaboration. The sections of this guide are listed in no particular order.
 
-The Journey Style Guide uses the [Semantic Versioning](https://semver.org/) schema version 2.0.0. The style guide itself is located on [GitHub](https://github.com/Journeyman-dev/Journey-Style-Guide).
+The Journey C++ Style Guide uses the [Semantic Versioning](https://semver.org/) schema version 2.0.0. The style guide itself is located on [GitHub](https://github.com/Journeyman1337/Journey-Style-Guide).
 
 ## Salient Security
 
 User security holds paramount importance. Always prioritize the usage of APIs designed to mitigate security vulnerabilities. When implementing code utilizing potentially unsafe APIs and features, exercise extra caution. Whenever possible, encapsulate unsafe code within a secure interface to minimize potential points where threat vectors could inadvertently be created. If you identify security risks that might not be apparent to other programmers, document them in comments. API documentation must explicitly explain the vulnerabilities programmers need to be mindful of. When selecting dependencies for specific tasks, libraries that are being actively developed and receive security updates must be preferred.
+
+## Feature Preference
+
+C++ has a rich legacy that goes back to the 1960s, and there are often may be many standard features available to accomplish the same task. When there are multiple ways of accomplishing the same task, the solution that came out in the most recent version of the C++ (or C) standard must be preferred because newer features are usually more secure and practical. However, older features may be used instead if there is a good reason for doing so. Comments must be used to explain this reasoning to others in order to prevent repeated discussion.
 
 ## Self Explaining Code
 
@@ -35,9 +38,17 @@ If Artificial Intelligence was used to generate code, this must be described. Th
 
 If project authors wish to forbid the usage of AI Code Generator in a project, this must be explicitly stated in a location that is easy to see.
 
-## C++ Standard Version
+## Explicit C++ Standard Version
 
 The C++ standard version that a project targets must be explicitly stated in a location that is easy to find. Code in the project must never utilize features that were adopted in standards later than the one specified.
+
+## Explicit Compiler Support
+
+Code must only utilize C++ features that are supported by compilers where feature support is guaranteed by the project. Documentation as to what compilers and compiler versions are supported for must be provided in a location that is easy to find. Projects must be tested to ensure that it compiles successfuly with each supported compiler version.
+
+## Explicit Project Versioning
+
+Projects must be versioned [Semantic Versioning](https://semver.org/) schema version 2.0.0. The version of the project must be mentioned in a location that is easy to find. Notes about changes between versions must be included in the project, or a link to where they are located must be provided.
 
 ## Include Files
 
@@ -133,10 +144,10 @@ Empty scope bracket pairs may be written as `{}` and do not need to be written o
 
 Constructor initializer lists must be written in the following style:
 
-PersonClass::PersonClass(std::string_view name, int age) noexcept
-: name(name)
-, age(age)
-{}
+    PersonClass::PersonClass(std::string_view name, int age) noexcept
+    : name(name)
+    , age(age)
+    {}
 
 ## Safe Destructors
 
@@ -150,33 +161,44 @@ Source code must be written only using [ASCII characters](https://en.wikipedia.o
 
 The closing braces of namespaces must always contain a comment with the namespace declaration (i.e. `} // namespace my_namespace`). In conditional statements, `else` statements must always be followed by a commented condition that must be true if the `else` statement is ever reached (i.e. `else // if (value > 4)`). The same must be done for `#else`  pre-processor directives.
 
-## Feature Preference
-
-C++ has a rich legacy that goes back to the 1960s, and there are often may be many standard features available to accomplish the same task. When there are multiple ways of accomplishing the same task, the solution that came out in the most recent version of the C++ (or C) standard must be preferred because newer features are usually more secure and practical. However, older features may be used instead if there is a good reason for doing so. Comments must be used to explain this reasoning to others in order to prevent repeated discussion.
-
 ## Avoid Macro Magic
 
 Macros may be used for switching out code based on project configuration and the platform. Macros must not be used in place of functions, and macros must not be used to generate complicated code. However, macros may be used in place of functions that must be written differently or ignored depending on project configuration or platform. XMacros must never be used. If the API of a dependency requires the use of generative macros, use them with extreme care and use them as little as necessary.
 
-## Never Use SFINAE
+## Use Concepts Over SFINAE
 
-Substitution Failure is Not An Error (SFINAE) is a terrible pattern because it makes source code more confusing and thus makes it harder to maintain. Instead, `concept` types may be used, or no constraints may be applied at all.
+When targeting versions of the C++ Standard that support `concept` types, they should always be used instead of Substitution Failure Is Not An Error (SFINAE) pattern. The SFINAE pattern results in confusing compiler error messages, while `concept` types are much more clear. Also, code written using the SFINAE pattern can be hard to maintain because of its increased complexity (see [Avoid Macro Magic](#avoid-macro-magic)).
 
-## Only Concepts Require
+## Use Concepts Over Requires
 
-The `requires` keyword must only be used in `concept` declarations. In other situations, a previously declared `concept` must be used instead.
+When using `requires` expressions, prefeer encapsulating constraints within `concept` types rather than having `requires` expressions attatched to object and function definitions. Consider the following template function implementation:
 
-## Guaranteed Compiler Support
+    #include <type_traits>
 
-Code must only utilize C++ features that are supported by compilers where feature support is guaranteed by the project. Documentation as to what compilers and compiler versions are supported for must be provided in a location that is easy to find. Projects must be tested to ensure that it compiles successfuly with each supported compiler version.
+    template<typename TTARG>
+        requires std::is_integral_v<TTARG>
+    TTARG add(TTARG number_a, TTARG number_b)
+    {
+        return number_a + number_b;
+    }
+
+Instead of adding the requires keyword, the function would be far more concise if the template argument used a `concept` type for constraints.
+
+    #include <concepts>
+
+    template<std::integral TTARG>
+    TTARG add(TTARG number_a, TTARG number_b)
+    {
+        return number_a + number_b;
+    }
 
 ## Compiler Warnings
 
-Compiler warnings must be treated as bugs that need to be fixed as soon as possible. To address compiler warnings, code may be edited to stop the warning, or the warning can be silenced if it is deemed as not a problem. Warnings must only be silenced narrowly around the offending code blocks rather than throughout an entire project. Before developers can silence a warning, they must receive a second opinion from an expert programmer to verify that there is no security vulnerability.
+Compiler warnings must be treated as bugs that need to be fixed as soon as possible. To address compiler warnings, code may be edited to stop the warning, or the warning can be silenced if it is deemed as not a problem. Warnings must only be silenced narrowly around the offending code blocks rather than throughout an entire project. Before developers can silence a warning, they must receive a second opinion from an expert programmer to verify that there is no security vulnerability. Warnings only matter if they are reported from supported compilers (see [Explicit Compiler Support](#explicit-compiler-support)).
 
 ## Local Functions
 
-Functions that are meant to be encapsulated within a translation unit must not use the static keyword. Instead, they must exist within anonymous namespaces. If utilized within only one other function, local functions must be written as a lambda assigned to a local variable instead.
+Functions that are meant to be encapsulated within a translation unit must not use the static keyword. Instead, they must exist within anonymous namespaces. If utilized within only one other function, local functions may be written as a lambda assigned to a local variable instead.
 
 ## Default Qualifiers
 
@@ -196,7 +218,7 @@ The nesting of object type declarations within other object type declarations mu
 
 ## Null Pointers
 
-When writing a null pointer value, the C++ `nullptr` keyword must be preferred. However, API specific notation may be used instead when working with other libraries, and the `NULL` macro from the C standard library may be used when dealing with C APIs. Null pointer values must never be written as the literal "0".
+When writing a null pointer value, the C++ `nullptr` keyword must be preferred. However, API specific notation may be used instead when working with other libraries, and the `NULL` macro from libc may be used when dealing with C APIs. Null pointer values must never be written as the literal "0" (see [Feature Preference](#feature-preference)).
 
 ## Void Function Arguments
 
@@ -216,15 +238,11 @@ Avoid implementing operators and constructors that allow for implicit conversion
 
 ## Heap Memory Ownership
 
-When dealing with memory allocated on the heap, ownership must be encapsulated into object lifetime to employ the Resource Acquisition Is Initialization (RAII) pattern. Standard library types that manage memory must be preferred over manual memory management, including `std::vector` and `std::unique_ptr`. The operators `new` and `delete` must not be used unless controlling memory allignment. C standard library memory functions such as `malloc`, `realloc` and `free` must never be used unless they are required.
+When dealing with memory allocated on the heap, ownership must be encapsulated into object lifetime to employ the Resource Acquisition Is Initialization (RAII) pattern. STL types that manage memory must be preferred over manual memory management, including `std::vector` and `std::unique_ptr`. The operators `new` and `delete` must not be used unless controlling memory allignment. C standard library memory functions such as `malloc`, `realloc` and `free` must never be used unless they are required (see [Feature Preference](#feature-preference)).
 
 ## Memory Reservation
 
 When a contiguious heap allocated data structure is filled with data, the required memory must be allocated ahead of time if possible. This is far more optimal than gradually reallocating and expanding the memory as the data is filled. If the size can not be easily determined ahead of time, the memory must instead be reserved to the maximum possible minimum size and then shrunk down after the memory is filled. The template type `std::vector` from the standard library has built in functions for doing this. Custom user defined types that deal with heap memory must be declared simillar member functions to allow for this kind of optimization.
-
-## Reference Counted Types
-
-Reference counted types such as `std::shared_ptr` must not be used. Instead, code must be written in a way so that shared ownership is not necessary.
 
 ## Safe Memory Access
 
@@ -232,9 +250,42 @@ When values are indexed from an array, safeguards must exist to prevent segmenta
 
 ## TODO Comments
 
-Comment starting with the word `TODO` in all caps can be used to signify something that needs to be adjusted or added at a later time.
+Comment starting with the word `TODO` in all caps can be used to signify something that needs to be adjusted or added at a later time. If there is a specific time when the changes need to be made, such as for a specific future version, this should be specified in the comment.
 
-## Never Use goto
+    // TODO Optimize memory usage.
+    // TODO Add a specific bit of new functionality by version 1.2
 
-The `goto` statement is a code smell, and must never be used.
+## Clear Line of Execution
+
+Language features and hacks that break the clear line of code execution should be avoided. The `goto` statement should never be used. Jump buffers should never be used unless they are required by a third party API. In this case, it is important to encapsulate the jump buffer usage as much as possible in order to minimize its reach (see [Feature Preference](#feature-preference)). Throwing and catching exceptions does not go against this guideline.
+
+## Minimize Nesting
+
+Within functions, code should be written with as little nesting as possible. When there are m Consider inverting your conditional statements. Consider how errors are handled in the following code:
+
+    void my_function(int value)
+    {
+        if (value > 0)
+        {
+            do_something(value);
+        }
+        else
+        {
+            throw InvalidValueException();
+        }
+    }
+
+The condition statement can be inverted in order to remove the nesting. If an `if` block returns or throws, then all following `else` statements are no longer necessary. An added benefit of writing code in this style is that all conditions that cause errors or a fast return become easily visible at the start of the function.
+
+    void my_function(int value)
+    {
+        if (value <= 0)
+        {
+            throw InvalidValueException();
+        }
+
+        do_something(value);
+    }
+
+Another way to minimize nesting is to move nested blocks into their own functions. To keep the logic encapsulated, blocks can be written as lambdas stored in local variables within the function.
 
