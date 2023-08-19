@@ -17,6 +17,10 @@ The Journey C++ Style Guide uses the [Semantic Versioning](https://semver.org/) 
 
 User security holds paramount importance. Always prioritize the usage of APIs designed to mitigate security vulnerabilities. When implementing code utilizing potentially unsafe APIs and features, exercise extra caution. Whenever possible, encapsulate unsafe code within a secure interface to minimize potential points where threat vectors could inadvertently be created. If you identify security risks that might not be apparent to other programmers, document them in comments. API documentation must explicitly explain the vulnerabilities programmers need to be mindful of. When selecting dependencies for specific tasks, libraries that are being actively developed and receive security updates must be preferred.
 
+## Feature Preference
+
+C++ has a rich legacy that goes back to the 1960s, and there are often may be many standard features available to accomplish the same task. When there are multiple ways of accomplishing the same task, the solution that came out in the most recent version of the C++ (or C) standard must be preferred because newer features are usually more secure and practical. However, older features may be used instead if there is a good reason for doing so. Comments must be used to explain this reasoning to others in order to prevent repeated discussion.
+
 ## Self Explaining Code
 
 Clarity and comprehension are vital. Source code must be treated as a tutorial, serving as an educational resource to demonstrate how specific task can be accomplished. To facilitate understanding, incorporate explanatory comments in instances where the code is particularly intricate and may pose challenges for readers. However, redundant comments that merely restate obvious intentions or aspects of the code must be avoided, as they do not add value to the reader's understanding.
@@ -149,10 +153,6 @@ Source code must be written only using [ASCII characters](https://en.wikipedia.o
 ## Trailer Comments
 
 The closing braces of namespaces must always contain a comment with the namespace declaration (i.e. `} // namespace my_namespace`). In conditional statements, `else` statements must always be followed by a commented condition that must be true if the `else` statement is ever reached (i.e. `else // if (value > 4)`). The same must be done for `#else`  pre-processor directives.
-
-## Feature Preference
-
-C++ has a rich legacy that goes back to the 1960s, and there are often may be many standard features available to accomplish the same task. When there are multiple ways of accomplishing the same task, the solution that came out in the most recent version of the C++ (or C) standard must be preferred because newer features are usually more secure and practical. However, older features may be used instead if there is a good reason for doing so. Comments must be used to explain this reasoning to others in order to prevent repeated discussion.
 
 ## Avoid Macro Magic
 
