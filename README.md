@@ -35,7 +35,7 @@ If Artificial Intelligence was used to generate code, this must be described. Th
 
 If project authors wish to forbid the usage of AI Code Generator in a project, this must be explicitly stated in a location that is easy to see.
 
-## C++ Standard Version
+## Explicit C++ Standard Version
 
 The C++ standard version that a project targets must be explicitly stated in a location that is easy to find. Code in the project must never utilize features that were adopted in standards later than the one specified.
 
