@@ -162,9 +162,28 @@ Macros may be used for switching out code based on project configuration and the
 
 When targeting versions of the C++ standard that support `concept` types, they should always be used instead of Substitution Failure Is Not An Error (SFINAE) pattern. The SFINAE pattern results in confusing compiler error messages, while `concept` types are much more clear. Also, code written using the SFINAE pattern can be hard to maintain because of its increased complexity (see [Avoid Macro Magic](##Avoid Macro Magic)).
 
-## Only Concepts Require
+## Use Concepts Over Requires
 
-The `requires` keyword must only be used in `concept` declarations. In other situations, a previously declared `concept` must be used instead.
+When using `requires` expressions, prefeer encapsulating constraints within `concept` types rather than having `requires` expressions attatched to object and function definitions. Consider the following template function implementation:
+
+    #include <type_traits>
+
+    template<typename TTARG>
+        requires std::is_integral_v<TTARG>
+    TTARG add(TTARG number_a, TTARG number_b)
+    {
+        return number_a + number_b;
+    }
+
+Instead of adding the requires keyword, the function would be far more concise if the template argument used a `concept` type for constraints.
+
+    #include <concepts>
+
+    template<std::integral TTARG>
+    TTARG add(TTARG number_a, TTARG number_b)
+    {
+        return number_a + number_b;
+    }
 
 ## Guaranteed Compiler Support
 
