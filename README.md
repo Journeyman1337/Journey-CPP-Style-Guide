@@ -215,7 +215,7 @@ The nesting of object type declarations within other object type declarations mu
 
 ## Null Pointers
 
-When writing a null pointer value, the C++ `nullptr` keyword must be preferred. However, API specific notation may be used instead when working with other libraries, and the `NULL` macro from libc may be used when dealing with C APIs. Null pointer values must never be written as the literal "0".
+When writing a null pointer value, the C++ `nullptr` keyword must be preferred. However, API specific notation may be used instead when working with other libraries, and the `NULL` macro from libc may be used when dealing with C APIs. Null pointer values must never be written as the literal "0" (see [Feature Preference](#feature-preference)).
 
 ## Void Function Arguments
 
@@ -235,7 +235,7 @@ Avoid implementing operators and constructors that allow for implicit conversion
 
 ## Heap Memory Ownership
 
-When dealing with memory allocated on the heap, ownership must be encapsulated into object lifetime to employ the Resource Acquisition Is Initialization (RAII) pattern. STL types that manage memory must be preferred over manual memory management, including `std::vector` and `std::unique_ptr`. The operators `new` and `delete` must not be used unless controlling memory allignment. C standard library memory functions such as `malloc`, `realloc` and `free` must never be used unless they are required.
+When dealing with memory allocated on the heap, ownership must be encapsulated into object lifetime to employ the Resource Acquisition Is Initialization (RAII) pattern. STL types that manage memory must be preferred over manual memory management, including `std::vector` and `std::unique_ptr`. The operators `new` and `delete` must not be used unless controlling memory allignment. C standard library memory functions such as `malloc`, `realloc` and `free` must never be used unless they are required (see [Feature Preference](#feature-preference)).
 
 ## Memory Reservation
 
@@ -259,7 +259,7 @@ Comment starting with the word `TODO` in all caps can be used to signify somethi
 
 ## Clear Line of Execution
 
-Language features and hacks that break the clear line of code execution should be avoided. The `goto` statement should never be used. Jump buffers should never be used unless they are required by a third party API. In this case, it is important to encapsulate the jump buffer usage as much as possible in order to minimize its reach. Throwing and catching exceptions does not go against this guideline.
+Language features and hacks that break the clear line of code execution should be avoided. The `goto` statement should never be used. Jump buffers should never be used unless they are required by a third party API. In this case, it is important to encapsulate the jump buffer usage as much as possible in order to minimize its reach (see [Feature Preference](#feature-preference)). Throwing and catching exceptions does not go against this guideline.
 
 ## Minimize Nesting
 
