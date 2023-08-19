@@ -158,9 +158,9 @@ C++ has a rich legacy that goes back to the 1960s, and there are often may be ma
 
 Macros may be used for switching out code based on project configuration and the platform. Macros must not be used in place of functions, and macros must not be used to generate complicated code. However, macros may be used in place of functions that must be written differently or ignored depending on project configuration or platform. XMacros must never be used. If the API of a dependency requires the use of generative macros, use them with extreme care and use them as little as necessary.
 
-## Never Use SFINAE
+## Use Concepts Over SFINAE
 
-Substitution Failure is Not An Error (SFINAE) is a terrible pattern because it makes source code more confusing and thus makes it harder to maintain. Instead, `concept` types may be used, or no constraints may be applied at all.
+When targeting versions of the C++ standard that support `concept` types, they should always be used instead of Substitution Failure Is Not An Error (SFINAE) pattern. The SFINAE pattern results in confusing compiler error messages, while `concept` types are much more clear. Also, code written using the SFINAE pattern can be hard to maintain because of its increased complexity (see [Avoid Macro Magic](##Avoid Macro Magic)).
 
 ## Only Concepts Require
 
