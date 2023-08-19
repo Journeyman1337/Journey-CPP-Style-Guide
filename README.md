@@ -252,7 +252,6 @@ Comment starting with the word `TODO` in all caps can be used to signify somethi
     // TODO Optimize memory usage.
     // TODO Add a specific bit of new functionality by version 1.2
 
-
 ## Clear Line of Execution
 
 Language features and hacks that break the clear line of code execution should be avoided. The `goto` statement should never be used. Jump buffers should never be used unless they are required by a third party API. In this case, it is important to encapsulate the jump buffer usage as much as possible in order to minimize its reach (see [Feature Preference](#feature-preference)). Throwing and catching exceptions does not go against this guideline.
