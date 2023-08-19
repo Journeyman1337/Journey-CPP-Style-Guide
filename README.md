@@ -133,10 +133,10 @@ Empty scope bracket pairs may be written as `{}` and do not need to be written o
 
 Constructor initializer lists must be written in the following style:
 
-PersonClass::PersonClass(std::string_view name, int age) noexcept
-: name(name)
-, age(age)
-{}
+    PersonClass::PersonClass(std::string_view name, int age) noexcept
+    : name(name)
+    , age(age)
+    {}
 
 ## Safe Destructors
 
