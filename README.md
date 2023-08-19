@@ -7,11 +7,11 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 # The Journey Style Guide v1.0.1
 [![REUSE status](https://api.reuse.software/badge/git.fsfe.org/reuse/api)](https://api.reuse.software/info/git.fsfe.org/reuse/api)
 
-Welcome to the Journey Style Guide, a code formatting style guide designed for writing modern C++ in collaborative projects. Developed by Daniel Aimé Valcour (Journeyman-dev), this guide has been specifically tailored usage with the [Journey Maker Toolkit](https://github.com/Journeyman-dev/Journey-Maker-Toolkit), but it released for public use under the [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
+Welcome to the Journey Style Guide, a code formatting style guide designed for writing modern C++ in collaborative projects. Developed by Daniel Aimé Valcour (Journeyman-dev), this guide has been specifically tailored usage with [The Roguelike Framework (RLFW)](https://github.com/Journeyman1337/rlfw), but it released for public use under the [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
 
 The Journey Style Guide endeavors to utilize the cutting edge of the C++ Standard, and it takes into account the features of modern Integrated Development Environments (IDEs). By adhering to the guidelines outlined in this style guide, software projects can maintain a high level of consistency and facilitate collaboration. The sections of this guide are listed in no particular order.
 
-The Journey Style Guide uses the [Semantic Versioning](https://semver.org/) schema version 2.0.0. The style guide itself is located on [GitHub](https://github.com/Journeyman-dev/Journey-Style-Guide).
+The Journey Style Guide uses the [Semantic Versioning](https://semver.org/) schema version 2.0.0. The style guide itself is located on [GitHub](https://github.com/Journeyman1337/Journey-Style-Guide).
 
 ## Salient Security
 
