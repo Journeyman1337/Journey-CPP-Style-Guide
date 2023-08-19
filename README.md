@@ -241,10 +241,6 @@ When dealing with memory allocated on the heap, ownership must be encapsulated i
 
 When a contiguious heap allocated data structure is filled with data, the required memory must be allocated ahead of time if possible. This is far more optimal than gradually reallocating and expanding the memory as the data is filled. If the size can not be easily determined ahead of time, the memory must instead be reserved to the maximum possible minimum size and then shrunk down after the memory is filled. The template type `std::vector` from the standard library has built in functions for doing this. Custom user defined types that deal with heap memory must be declared simillar member functions to allow for this kind of optimization.
 
-## Reference Counted Types
-
-Reference counted types such as `std::shared_ptr` must not be used. Instead, code must be written in a way so that shared ownership is not necessary.
-
 ## Safe Memory Access
 
 When values are indexed from an array, safeguards must exist to prevent segmentation faults from out of range access. When invalid access is possible at runtime, invalid access must be handled with a thrown exception, a returned `std::expected`, or some other method that is described in the documentation. When array access must be guaranteed at runtime to never go out of bounds, invalid access must be detected it in debug builds using an `assert()` statement.
