@@ -5,7 +5,6 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
 # The Journey C++ Style Guide v2.0.0
-[![REUSE status](https://api.reuse.software/badge/git.fsfe.org/reuse/api)](https://api.reuse.software/info/git.fsfe.org/reuse/api)
 
 Welcome to the Journey C++ Style Guide, a code formatting style guide designed for writing modern C++ in collaborative projects. Developed by Daniel Aimé Valcour (Journeyman-dev), this guide has been specifically tailored usage with [The Roguelike Framework (RLFW)](https://github.com/Journeyman1337/rlfw), but it released for public use under the [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
 
