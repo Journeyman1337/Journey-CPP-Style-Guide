@@ -160,7 +160,7 @@ Macros may be used for switching out code based on project configuration and the
 
 ## Use Concepts Over SFINAE
 
-When targeting versions of the C++ Standard that support `concept` types, they should always be used instead of Substitution Failure Is Not An Error (SFINAE) pattern. The SFINAE pattern results in confusing compiler error messages, while `concept` types are much more clear. Also, code written using the SFINAE pattern can be hard to maintain because of its increased complexity (see [Avoid Macro Magic](##Avoid Macro Magic)).
+When targeting versions of the C++ Standard that support `concept` types, they should always be used instead of Substitution Failure Is Not An Error (SFINAE) pattern. The SFINAE pattern results in confusing compiler error messages, while `concept` types are much more clear. Also, code written using the SFINAE pattern can be hard to maintain because of its increased complexity (see [Avoid Macro Magic](#Avoid-Macro-Magic)).
 
 ## Use Concepts Over Requires
 
