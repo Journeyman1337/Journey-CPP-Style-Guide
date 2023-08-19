@@ -47,6 +47,10 @@ The C++ standard version that a project targets must be explicitly stated in a l
 
 Code must only utilize C++ features that are supported by compilers where feature support is guaranteed by the project. Documentation as to what compilers and compiler versions are supported for must be provided in a location that is easy to find. Projects must be tested to ensure that it compiles successfuly with each supported compiler version.
 
+## Explicit Project Versioning
+
+Projects must be versioned [Semantic Versioning](https://semver.org/) schema version 2.0.0. The version of the project must be mentioned in a location that is easy to find. Notes about changes between versions must be included in the project, or a link to where they are located must be provided.
+
 ## Include Files
 
 To prevent circular inclusion bugs, include files must include the statement `#pragma once` at the top of the file. While it is true that `#pragma once` is not a part of any C or C++ standard, it is supported by every significant compiler tool-chain including Clang, GCC, MSVC, and Emscripten.
