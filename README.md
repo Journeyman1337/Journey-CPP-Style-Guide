@@ -191,7 +191,7 @@ Instead of adding the requires keyword, the function would be far more concise i
 
 ## Compiler Warnings
 
-Compiler warnings must be treated as bugs that need to be fixed as soon as possible. To address compiler warnings, code may be edited to stop the warning, or the warning can be silenced if it is deemed as not a problem. Warnings must only be silenced narrowly around the offending code blocks rather than throughout an entire project. Before developers can silence a warning, they must receive a second opinion from an expert programmer to verify that there is no security vulnerability.
+Compiler warnings must be treated as bugs that need to be fixed as soon as possible. To address compiler warnings, code may be edited to stop the warning, or the warning can be silenced if it is deemed as not a problem. Warnings must only be silenced narrowly around the offending code blocks rather than throughout an entire project. Before developers can silence a warning, they must receive a second opinion from an expert programmer to verify that there is no security vulnerability. Warnings only matter if they are reported from supported compilers (see [Explicit Compiler Support](#explicit-compiler-support)).
 
 ## Local Functions
 
