@@ -43,6 +43,10 @@ If project authors wish to forbid the usage of AI Code Generator in a project, t
 
 The C++ standard version that a project targets must be explicitly stated in a location that is easy to find. Code in the project must never utilize features that were adopted in standards later than the one specified.
 
+## Explicit Compiler Support
+
+Code must only utilize C++ features that are supported by compilers where feature support is guaranteed by the project. Documentation as to what compilers and compiler versions are supported for must be provided in a location that is easy to find. Projects must be tested to ensure that it compiles successfuly with each supported compiler version.
+
 ## Include Files
 
 To prevent circular inclusion bugs, include files must include the statement `#pragma once` at the top of the file. While it is true that `#pragma once` is not a part of any C or C++ standard, it is supported by every significant compiler tool-chain including Clang, GCC, MSVC, and Emscripten.
@@ -184,10 +188,6 @@ Instead of adding the requires keyword, the function would be far more concise i
     {
         return number_a + number_b;
     }
-
-## Guaranteed Compiler Support
-
-Code must only utilize C++ features that are supported by compilers where feature support is guaranteed by the project. Documentation as to what compilers and compiler versions are supported for must be provided in a location that is easy to find. Projects must be tested to ensure that it compiles successfuly with each supported compiler version.
 
 ## Compiler Warnings
 
