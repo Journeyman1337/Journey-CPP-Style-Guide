@@ -160,7 +160,7 @@ Macros may be used for switching out code based on project configuration and the
 
 ## Use Concepts Over SFINAE
 
-When targeting versions of the C++ standard that support `concept` types, they should always be used instead of Substitution Failure Is Not An Error (SFINAE) pattern. The SFINAE pattern results in confusing compiler error messages, while `concept` types are much more clear. Also, code written using the SFINAE pattern can be hard to maintain because of its increased complexity (see [Avoid Macro Magic](##Avoid Macro Magic)).
+When targeting versions of the C++ Standard that support `concept` types, they should always be used instead of Substitution Failure Is Not An Error (SFINAE) pattern. The SFINAE pattern results in confusing compiler error messages, while `concept` types are much more clear. Also, code written using the SFINAE pattern can be hard to maintain because of its increased complexity (see [Avoid Macro Magic](##Avoid Macro Magic)).
 
 ## Use Concepts Over Requires
 
@@ -215,7 +215,7 @@ The nesting of object type declarations within other object type declarations mu
 
 ## Null Pointers
 
-When writing a null pointer value, the C++ `nullptr` keyword must be preferred. However, API specific notation may be used instead when working with other libraries, and the `NULL` macro from the C standard library may be used when dealing with C APIs. Null pointer values must never be written as the literal "0".
+When writing a null pointer value, the C++ `nullptr` keyword must be preferred. However, API specific notation may be used instead when working with other libraries, and the `NULL` macro from libc may be used when dealing with C APIs. Null pointer values must never be written as the literal "0".
 
 ## Void Function Arguments
 
@@ -235,7 +235,7 @@ Avoid implementing operators and constructors that allow for implicit conversion
 
 ## Heap Memory Ownership
 
-When dealing with memory allocated on the heap, ownership must be encapsulated into object lifetime to employ the Resource Acquisition Is Initialization (RAII) pattern. Standard library types that manage memory must be preferred over manual memory management, including `std::vector` and `std::unique_ptr`. The operators `new` and `delete` must not be used unless controlling memory allignment. C standard library memory functions such as `malloc`, `realloc` and `free` must never be used unless they are required.
+When dealing with memory allocated on the heap, ownership must be encapsulated into object lifetime to employ the Resource Acquisition Is Initialization (RAII) pattern. STL types that manage memory must be preferred over manual memory management, including `std::vector` and `std::unique_ptr`. The operators `new` and `delete` must not be used unless controlling memory allignment. C standard library memory functions such as `malloc`, `realloc` and `free` must never be used unless they are required.
 
 ## Memory Reservation
 
